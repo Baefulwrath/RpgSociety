@@ -1,6 +1,7 @@
 package render.renderers;
 
 import render.Renderer;
+import ui.UIhandler;
 
 public class Menu_Renderer extends Renderer{
 
@@ -22,8 +23,7 @@ public class Menu_Renderer extends Renderer{
 
 	@Override
 	public void staticRender() {
-		// TODO Auto-generated method stub
-		
+		drawMenu(UIhandler.getMainMenu());
 	}
 
 }
