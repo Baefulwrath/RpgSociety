@@ -100,7 +100,7 @@ public abstract class Renderer {
     
     public void drawButton(Button b){
 		drawNinePatch(b.getTex(), b.BOX, Color.WHITE);
-		drawString(b.TITLE, b.BOX.x + b.TITLEX, b.BOX.y + b.getTextY(), b.STYLE.LABELSTYLE, 1.0f);
+		drawString(b.TITLE + " - " + b.ACTIVE + " - " + b.HOVER, b.BOX.x + b.TITLEX, b.BOX.y + b.getTextY(), b.STYLE.LABELSTYLE, 1.0f);
     }
     
     public void drawMenus(ArrayList<Menu> m){
@@ -134,6 +134,7 @@ public abstract class Renderer {
     public void drawTileImage(TileImage t) {
     	
 	}
+    
 	public void drawMessages(ArrayList<Message> m, float x, float y, boolean up){
     	LabelStyle style = Assethandler.messageLabelStyle;
     	for(int i = 0; i < m.size(); i++){

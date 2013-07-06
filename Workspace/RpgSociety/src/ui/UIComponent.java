@@ -1,5 +1,7 @@
 package ui;
 
+import input.Pointer;
+
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
@@ -29,7 +31,9 @@ public abstract class UIComponent {
 	public ArrayList<TileImage> tileImages = new ArrayList<TileImage>();
 	public ArrayList<Rectangle> collisionAreas = new ArrayList<Rectangle>();
 	
-	public UIComponent(int x, int y, int w, int h){
+	public UIComponent(String title, String id, int x, int y, int w, int h){
+		TITLE = title;
+		ID = id;
 		BOX = new Rectangle(x, y, w, h);
 	}
 
@@ -78,11 +82,9 @@ public abstract class UIComponent {
 	
 	public abstract void setup();
 	
-	public void mouseDown(){
-		
-	}
-	
-	public void mouseUp(){
-		
+	public void inputUpdate(Pointer p){
+		for(int i = 0; i < buttons.size(); i++){
+			buttons.get(i).inputUpdate(p);
+		}
 	}
 }

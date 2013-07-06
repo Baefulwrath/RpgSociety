@@ -1,5 +1,9 @@
 package ui;
 
+import input.Inputhandler;
+import input.Pointer;
+
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +16,9 @@ public class UIhandler {
 	public static String activeMainMenu = "";
 
 	public static void setup(){
-		mainMenus.put("main", new MAINMENU_main());
+		mainMenus.put(MAINMENU_main.id, new MAINMENU_main());
 		
-		activeMainMenu = "main";
+		activeMainMenu = MAINMENU_main.id;
 	}
 	
 	public static void print(String s){
@@ -34,9 +38,14 @@ public class UIhandler {
 	    for(Map.Entry<String, MainMenu> entry : mainMenus.entrySet()){
 	    	mainMenus.get(entry.getKey()).update();
 	    }
+	    inputUpdate(Inputhandler.staticMouse);
 	}
 	
 	public static MainMenu getMainMenu(){
 		return mainMenus.get(activeMainMenu);
+	}
+	
+	public static void inputUpdate(Pointer p){
+		getMainMenu().inputUpdate(p);
 	}
 }

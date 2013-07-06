@@ -1,6 +1,7 @@
 package ui;
 
 import input.Inputhandler;
+import input.Pointer;
 
 import java.awt.Rectangle;
 
@@ -26,7 +27,7 @@ public class Button {
 		STYLE = style;
 	}
 	
-	public void update(boolean active){
+	public void update(){
 	}
 	
 	public boolean intersects(Rectangle r) {
@@ -57,22 +58,24 @@ public class Button {
 		int temp = (int) ((BOX.height / 2) + (STYLE.LABELSTYLE.font.getCapHeight() / 2));
 		return temp;
 	}
-	
-	public boolean activate(){
-		boolean temp = false;
-		if(ACTIVE && HOVER){
-			Scripthandler.handleScript(SCRIPT);
-			temp = true;
-		}
-		ACTIVE = false;
-		return temp;
-	}
 
-	public void systemUpdate(boolean active) {
-		if(intersects(Inputhandler.staticMouse) && active){
+	public void inputUpdate(Pointer p) {
+		if(intersects(p)){
 			HOVER = true;
 		}else{
 			HOVER = false;
+		}
+		if(p.down){
+			ACTIVE = true;
+		}else{
+			activate();
+			ACTIVE = false;
+		}
+	}
+	
+	public void activate(){
+		if(HOVER && ACTIVE){
+			Scripthandler.handleScript(SCRIPT);
 		}
 	}
 }

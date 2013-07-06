@@ -1,8 +1,8 @@
 package ui;
 
 public abstract class Menu extends UIComponent{
-	public Menu(int tx, int ty, int x, int y, int w, int h){
-		super(x, y, w, h);
+	public Menu(String title, String id, int tx, int ty, int x, int y, int w, int h){
+		super(title, id, x, y, w, h);
 		UICT = UICType.MENU;
 		TITLEX = tx;
 		TITLEY = ty;
