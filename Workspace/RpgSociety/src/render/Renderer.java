@@ -126,8 +126,8 @@ public abstract class Renderer {
     		drawTileImage(m.tileImages.get(i));
     	}
     	if(m.RENDERTITLE){
-    		drawString(m.TITLE, m.TITLEX, m.TITLEY, Assethandler.titleLabelStyle, m.OPACITY);
-    		drawString("----------------", m.TITLEX, m.TITLEY - 16, Assethandler.titleLabelStyle, m.OPACITY);
+    		drawString(m.TITLE, m.getTitleX(), m.getTitleY(), Assethandler.titleLabelStyle, m.OPACITY);
+    		drawString("----------------", m.getTitleX(), m.getTitleY() - 16, Assethandler.titleLabelStyle, m.OPACITY);
     	}
     }
     

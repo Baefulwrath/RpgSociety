@@ -4,11 +4,19 @@ public abstract class Menu extends UIComponent{
 	public Menu(int tx, int ty, int x, int y, int w, int h){
 		super(x, y, w, h);
 		UICT = UICType.MENU;
-		TITLEX = tx + BOX.x;
-		TITLEY = ty + BOX.y;
+		TITLEX = tx;
+		TITLEY = ty;
 	}
 	
-	public int TITLEX = 0;
-	public int TITLEY = 0;
+	protected int TITLEX = 0;
+	protected int TITLEY = 0;
+	
+	public int getTitleX(){
+		return TITLEX + BOX.x;
+	}
+	
+	public int getTitleY(){
+		return TITLEY + BOX.y;
+	}
 	
 }

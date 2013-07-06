@@ -7,7 +7,7 @@ public class MAINMENU_main extends MainMenu{
 
 	@Override
 	public void setup() {
-		addLabel("testtesttest", 20, -50, Assethandler.basicLabelStyle);
+		addMainLabel("testtesttest", 20, -50, Assethandler.basicLabelStyle);
 	}
 	
 }
